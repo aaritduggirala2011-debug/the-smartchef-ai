@@ -1,4 +1,4 @@
-import { Progress } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 
 export function MacroBar({
   label,
@@ -27,11 +27,15 @@ export function MacroBar({
           {unit}
         </span>
       </div>
-      <Progress
-        value={pct}
-        className="mt-2 h-2.5"
-        indicatorClassName={tone === "terracotta" ? "bg-terracotta" : "bg-primary"}
-      />
+      <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-secondary">
+        <div
+          className={cn(
+            "h-full rounded-full transition-all",
+            over ? "bg-terracotta" : tone === "terracotta" ? "bg-terracotta" : "bg-primary",
+          )}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
     </div>
   );
 }

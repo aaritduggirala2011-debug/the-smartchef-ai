@@ -25,10 +25,6 @@ const QUICK_ADD = [
   "Sweet potato", "Oats", "Broccoli", "Lemon",
 ];
 
-export function useCategory(name: string) {
-  return name;
-}
-
 function Pantry() {
   const qc = useQueryClient();
   const [value, setValue] = useState("");
